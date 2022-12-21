@@ -10,9 +10,24 @@ var http = require('http');
 
 
 
-//mongoose add...
+
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/demo');
+
+//local
+// mongoose.connect('mongodb://localhost:27017/demo', {}).then((res) => {
+//   console.log("Db Connected");
+// }).catch((error) => {
+//   console.log(error + "error in db connection");
+// });
+
+
+
+//live
+mongoose.connect('mongodb+srv://HHG:HHG@cluster0.f2c5v.mongodb.net/demo?retryWrites=true&w=majority',{}).then((res)=>{
+  console.log("Db Connected");
+}).catch((error)=>{
+  console.log(error + "error in db connection");
+});
 
 /**
  * Get port from environment and store in Express.
